@@ -1,0 +1,321 @@
+*{
+    box-sizing: border-box;
+    margin:5px;
+    padding:5px;
+}
+
+
+body{
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    margin: 0 auto;
+}
+
+.grid-container{
+    display:grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr 15%;
+
+    grid-auto-rows: minmax(100px, auto);
+
+    grid-template-areas: "headr  headr  headr"     
+                         "artM   artM   asiM"  
+                         "foot   foot   foot";   
+                                        
+}
+
+
+/*asigno un nom a cada area*/
+.header{
+    grid-area:headr;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "navH" 
+                         "imgH";
+    background-image: url("../img/Activitat\ Flex\ -\ Nivell\ 2\ -\ fons\ capçalera.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.navHeader{
+    grid-area: navH;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.logoNavHeader{
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.menuNavHeader{
+    flex: 4 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.menuNavHeader ul {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    align-items:flex-start;
+    list-style: none;
+    justify-content: flex-start;
+}
+
+li {
+     flex: 1 1 auto;
+     margin-left:0;
+     display: flex;
+     flex-direction: row;
+     padding: 0;
+ }
+ 
+ .menuNavHeader a {
+     text-decoration:none;
+     font-weight: bold;
+     color:rgb(22, 22, 22)
+     
+ }
+
+
+.xarxesNavHeader{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.xarxesNavHeader a {
+    color:rgb(22, 22, 22)
+}
+
+a:hover{
+    color:royalblue;
+}
+
+.imgHeader{
+    grid-area: imgH;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 0;
+}
+
+.h1ImgHeader{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.h1ImgHeader h1{
+    font-family: 'Roboto Slab', serif;
+    color:rgba(240, 128, 128, 0.658) ;
+    padding: 0;
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+blockquote{
+    quotes:"\201C" "\201D";
+}
+
+blockquote:before { 
+    content: open-quote;
+    font-size: 3rem;
+}
+
+blockquote:after  { 
+    content: close-quote; 
+    font-size: 3rem;
+}
+
+/*----------- Main ------------*/
+
+
+.articlesMain{
+    grid-area:artM;
+    background-color:lightgray;
+    flex: 2 1 auto;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+}
+
+.articleArticlesMain{
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.articleArticlesMain h2{
+    background-color: crimson;
+    color: white;
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 15px;
+}
+
+.articleArticlesMain p{
+    text-align: justify;
+    color:rgb(70, 70, 70);
+    font-weight:bold ;
+}
+
+.articleArticlesMain p:nth-child(5){
+    color: lightslategrey;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 15px;
+}
+
+.articleArticlesMain p:nth-child(2){
+    color: white;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top:-20px;
+    font-size: 0.7rem;
+}
+
+.articleArticlesMain img{
+    max-width:100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.menuArticlesMain{
+    background-color:linen;
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.asideMain{
+    grid-area:asiM;
+    background-color:linen;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    border: lightgray;
+    border-style: solid;
+    border-width: thick;
+
+}
+
+.anunciAsideMain{
+    background-color:grey;
+}
+
+.asideMain h2{
+    align-self: center;
+}
+
+.footer{
+    grid-area:foot;
+    background-color:lightgray;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    
+}
+
+.dadesEmpresaFooter{
+    background-color:linen;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex: 1 1 100%;
+    align-items: center;
+}
+
+
+/*------ MEDIA QUERY - Versio TAULETA ----- Breakpoint a 780 px ------*/
+
+@media only screen and (max-width: 780px){
+    .grid-container{
+
+    grid-template-columns: 50% 50%;
+
+    grid-template-rows: auto auto auto auto;
+
+    grid-template-areas: "headr  headr"     
+                         "artM   artM"  
+                         "asiM   asiM"
+                         "foot   foot";
+
+    width: 100%;                     
+    max-width: 780px;   
+    margin: 0 auto;      
+    }         
+    
+    .h1ImgHeader h1{
+        font-size: 1.5rem;
+    }
+
+    .asideMain{
+        align-items: center;
+    }
+}
+
+/*------ MEDIA QUERY - Versio MOBIL ----- Breakpoint a 618 px ------*/
+@media only screen and (max-width: 618px){
+    .grid-container{
+        grid-template-columns: 100%;
+
+    grid-template-rows: auto auto auto auto;
+
+    grid-template-areas: "headr"     
+                         "artM"  
+                         "asiM"
+                         "foot";
+
+    width: 100%;                     
+    max-width: 618px;   
+    margin: 0 auto;
+    }  
+
+    .navHeader{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menuNavHeader{
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    .menuNavHeader ul{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logoNavHeader{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .imgHeader{
+        align-items: center;
+    }
+
+    .h1ImgHeader h1{
+        font-size: 2rem;
+    }
+
+    .articlesMain{
+        flex-direction: column;
+    }
+
+
+}       
